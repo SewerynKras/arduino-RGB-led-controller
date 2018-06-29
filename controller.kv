@@ -1,0 +1,60 @@
+#:kivy 1.10.0
+
+<Controller>:
+
+    # preview rectangle
+    canvas:
+        Color:
+            rgb: root.rgb
+        Rectangle:
+            id: rec
+            size: root.size[0]/2, root.size[1]/6
+            pos: root.size[0] / 10, root.size[1]/10
+
+    # red slider
+    Slider:
+        id: slider_r
+        value: 255
+        min: 0
+        max: 255
+        on_value: root.rgb[0] = self.value / 255
+        size: (root.size[0]/2,root.size[1]/6)
+        pos: (root.size[0]/10,4*root.size[1]/5)
+    Label:
+        text: 'Red value: ' + str(int(slider_r.value))
+        size: (slider_r.size[0] / 3,slider_r.size[1])
+        pos: (3*root.size[0]/4, slider_r.pos[1])
+
+    # green slider
+    Slider:
+        id: slider_g
+        value: 0
+        min: 0
+        max: 255
+        on_value: root.rgb[1] = self.value / 255
+        size: (root.size[0]/2,root.size[1]/6)
+        pos: (root.size[0]/10,3*root.size[1]/5)
+    Label:
+        text: 'Green value: ' + str(int(slider_g.value))
+        size: (slider_g.size[0] / 3,slider_g.size[1])
+        pos: (3* root.size[0]/4, slider_g.pos[1])
+
+    # blue slider
+    Slider:
+        id: slider_b
+        value: 0
+        min: 0
+        max: 255
+        on_value: root.rgb[2] = self.value / 255
+        size: (root.size[0]/2,root.size[1]/6)
+        pos: (root.size[0]/10,2*root.size[1]/5)
+    Label:
+        text: 'Blue value: ' +  str(int(slider_b.value))
+        size: (slider_b.size[0] / 3,slider_b.size[1])
+        pos: (3 * root.size[0]/4, slider_b.pos[1])
+
+    Button:
+        text: "Send data to Arduino"
+        size: (root.size[0]/6,root.size[1]/6)
+        pos: (3 * root.size[0]/4,root.size[1]/10)
+        on_press: root.send_data(*args)
