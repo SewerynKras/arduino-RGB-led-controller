@@ -10,7 +10,7 @@ Customizable variables:
 
 ## Python packages
 
-- [kivy](https://kivy.org/docs/installation/installation-rpi.html)
+- [kivy](https://kivy.org/#download)
 - [serial](http://pyserial.readthedocs.io/en/latest/pyserial.html)
 
 ## Screenshots

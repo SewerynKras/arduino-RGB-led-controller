@@ -4,11 +4,11 @@ from kivy.properties import ListProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
 
-ARDUINO_PORT = 'com4'
+ARDUINO_PORT = 'com3'
 
 
 class Controller(Widget):
-    rgb = ListProperty([1, 0, 0])
+    rgb = ListProperty([0, 0, 0])
 
     def __init__(self):
         super(Controller, self).__init__()
@@ -16,13 +16,13 @@ class Controller(Widget):
         # open serial communication with arduino
         self.data = serial.Serial(ARDUINO_PORT, 9600)
 
-    def send_data(self, *args):
+    def change_color(self, color, value):
 
-        # join the color channels in a way that each value is 3 digits long
-        output = ''.join([str(int(i * 255)).zfill(3) for i in self.rgb])
+        new_color = f"{color}{str(int(value)).zfill(3)}"
+        colors = {'r': 0, 'g': 1, 'b': 2}
+        self.rgb[colors[color]] = value / 255.0
 
-        # send arduino the 9 digit long string converted to bytes
-        self.data.write(output.encode())
+        self.data.write(new_color.encode())
 
 
 class controllerApp(App):

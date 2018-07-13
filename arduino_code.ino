@@ -25,11 +25,17 @@ void loop()
             input += serialData;
         }
     }
-    if (input.length() > 8)
+    if (input.length() == 4)
     {
-        analogWrite(RED_PIN, input.substring(0, 3).toInt());
-        analogWrite(GREEN_PIN, input.substring(3, 6).toInt());
-        analogWrite(BLUE_PIN, input.substring(6).toInt());
+        if (input[0] == 'r')
+            analogWrite(RED_PIN, input.substring(1).toInt());
+        
+        else if (input[0] == 'g')
+            analogWrite(GREEN_PIN, input.substring(1).toInt());
+
+        else if(input[0] == 'b')
+            analogWrite(BLUE_PIN, input.substring(1).toInt());
+
         input = "";
     }
     delay(10);
