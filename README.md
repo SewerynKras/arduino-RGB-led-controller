@@ -5,13 +5,19 @@ Resizable python app built using the Kivy framework that communicates with Ardui
 ----
 Customizable variables:
 
- - 'ARDUINO_PORT' in controller.py file
- - 'RED_PIN', 'BLUE_PIN', 'GREEN_PIN' in arduino_code.ino file
+- 'RED_PIN', 'BLUE_PIN', 'GREEN_PIN' in arduino_code/arduino_code.ino file
+
+----
+Usage example:
+
+```python
+$ python controller.py COM3
+```
 
 ## Python packages
 
 - [kivy](https://kivy.org/#download)
-- [serial](http://pyserial.readthedocs.io/en/latest/pyserial.html)
+- [pySerial](http://pyserial.readthedocs.io/en/latest/pyserial.html)
 
 ## Screenshots
 

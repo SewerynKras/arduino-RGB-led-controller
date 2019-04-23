@@ -2,53 +2,53 @@
 
 <Controller>:
 
-    # preview rectangle
+    # preview rectangle ------------------------------------------------------
     canvas:
         Color:
             rgb: root.rgb
         Rectangle:
             id: rec
-            size: 8 * root.size[0] / 10, root.size[1] / 5
-            pos: root.size[0] / 10, root.size[1] / 10
+            size: root.size[0] * 0.8, root.size[1] * 0.2
+            pos: root.size[0] * 0.1, root.size[1] * 0.1
 
-    # red slider
+    # red slider -------------------------------------------------------------
     Slider:
         id: slider_r
         value: 0
         min: 0
         max: 255
-        on_value: root.change_color('r', self.value)
-        size: (root.size[0] / 2, root.size[1] / 6)
-        pos: (root.size[0] / 10, 4 * root.size[1] / 5)
+        on_value: root.change_color('red', self.value)
+        size: root.size[0] * 0.5, root.size[1] * 0.15
+        pos: root.size[0] * 0.1, root.size[1] * 0.8
     Label:
         text: 'Red value: ' + str(int(slider_r.value))
-        size: (slider_r.size[0] / 3, slider_r.size[1])
-        pos: (3 * root.size[0]/4, slider_r.pos[1])
+        size: slider_r.size[0] * 0.3, slider_r.size[1]
+        pos: root.size[0] * 0.75, slider_r.pos[1]
 
-    # green slider
+    # green slider -----------------------------------------------------------
     Slider:
         id: slider_g
         value: 0
         min: 0
         max: 255
-        on_value: root.change_color('g',self.value)
-        size: (root.size[0] / 2, root.size[1] / 6)
-        pos: (root.size[0] / 10, 3 * root.size[1] / 5)
+        on_value: root.change_color('green', self.value)
+        size: root.size[0] * 0.5, root.size[1] * 0.15
+        pos: root.size[0] * 0.1, root.size[1] * 0.6
     Label:
         text: 'Green value: ' + str(int(slider_g.value))
-        size: (slider_g.size[0] / 3, slider_g.size[1])
-        pos: (3* root.size[0] / 4, slider_g.pos[1])
+        size: slider_g.size[0] * 0.3, slider_g.size[1]
+        pos: root.size[0] * 0.75, slider_g.pos[1]
 
-    # blue slider
+    # blue slider ------------------------------------------------------------
     Slider:
         id: slider_b
         value: 0
         min: 0
         max: 255
-        on_value: root.change_color('b',self.value)
-        size: (root.size[0] / 2, root.size[1] / 6)
-        pos: (root.size[0] / 10, 2 * root.size[1] / 5)
+        on_value: root.change_color('blue', self.value)
+        size: root.size[0] * 0.5, root.size[1] * 0.15
+        pos: root.size[0] * 0.1, root.size[1] * 0.4
     Label:
         text: 'Blue value: ' +  str(int(slider_b.value))
-        size: (slider_b.size[0] / 3, slider_b.size[1])
-        pos: (3 * root.size[0] / 4, slider_b.pos[1])
+        size: slider_b.size[0] * 0.3, slider_b.size[1]
+        pos: root.size[0] * 0.75, slider_b.pos[1]
