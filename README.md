@@ -10,7 +10,7 @@ Customizable variables:
 ----
 Usage example:
 
-```python
+```
 $ python controller.py COM3
 ```
 
