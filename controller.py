@@ -55,6 +55,7 @@ class controllerApp(App):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Control an arduino RGB strip over serial port')
-    parser.add_argument('port', help='Serial port that Arduino is connected to')
+    parser.add_argument('port',
+                        help='Serial port that Arduino is connected to')
     args = parser.parse_args()
     controllerApp(port=args.port).run()
